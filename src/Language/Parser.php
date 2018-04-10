@@ -964,12 +964,15 @@ class Parser
     function parseImplementsInterfaces()
     {
         $types = [];
+
         if ($this->lexer->token->value === 'implements') {
             $this->lexer->advance();
+
             do {
                 $types[] = $this->parseNamedType();
-            } while ($this->peek(Token::NAME));
+            } while ($this->skip(Token::AMP));
         }
+
         return $types;
     }
 

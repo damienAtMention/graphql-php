@@ -195,7 +195,7 @@ class Printer
                     return $this->join([
                         'type',
                         $def->name,
-                        $this->wrap('implements ', $this->join($def->interfaces, ', ')),
+                        $this->wrap('implements ', $this->join($def->interfaces, ' '.TOKEN::AMP.' ')),
                         $this->join($def->directives, ' '),
                         $this->block($def->fields)
                     ], ' ');
